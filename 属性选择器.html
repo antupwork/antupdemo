@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*li[index=on]{ background: blue; } 只有这个值的*/
+		li{  background: #000;margin: 10px 0;}
+		/*li[index~=on]{background: green;} 含有这个属性的*/
+		/*li[index*=on]{background: #009;} 只要有这个词的*/
+		/*li[index^=on]{background: #343;} 以它开头的*/
+		/*li[index$=on]{background: #564;} 结尾*/
+		li[index|=on]{background: #460;}/*带-的或者只有这个*/
+	</style>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li index="on"></li>
+		<li index="on active"></li>
+		<li index="on-red"></li>
+		<li index="onnew"></li>
+		<li index="active on"></li>
+	</ul>
+</body>
+</html>

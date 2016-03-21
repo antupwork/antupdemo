@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{ background:url(space_bg.jpg) no-repeat; width:100%; height:100%; background-size:cover;}
+		*{margin: 0;padding: 0;}
+		.clock{width: 200px;height: 200px;border-radius: 50%; position: absolute;left: 50%; top: 50%; margin-left: -153px;margin-top: -153px; background:url(space_bg.jpg); background-size:cover;}
+		.clock div{position: absolute;left: 50%;border-radius: 100% 100% 0 0 ;-webkit-transform-origin:center bottom;}
+		.hour{width:8px; height: 30px;background: #000;margin-left: -4px; top:70px; background:url(space_bg.jpg); background-size:cover; }
+		.min{width: 6px ;height: 50px; background: #000;margin-left: -3px; top: 50px; background:url(space_bg.jpg); background-size:cover;}
+		.sec{width: 4px;height: 65px; background:#3a2853;margin-left: -2px; top: 35px;}
+		.needle{ width:2px; height:6px; background:#066; position:absolute;left:50%; top:0; margin-left:-2px; -webkit-transform-origin:center 100px;}
+		.needle_m{ width:4px; height:8px; background:#066; position:absolute;left:50%; top:0; margin-left:-2px; -webkit-transform-origin:center 100px; font-style:normal;}
+		.needle_m span{ width:20px; height:20px; top:10px; position:absolute;left:50%; margin-left:-10px; font-size:18px; text-align:center; line-height:20px; font-weight:bold; color:#d7dce4; }
+		.dot{ width:8px; height:8px; background:#6b7889; border-radius:50%; position:absolute; left:50%; top:50%; margin-left:-4px;margin-top:-4px; box-shadow:0 0 10px #fff;}
+	</style>
+	<script>
+		document.addEventListener('DOMContentLoaded',function(){
+			var oC=document.querySelector('.clock');
+			var oH=document.querySelector('.hour');
+			var oM=document.querySelector('.min');
+			var oS=document.querySelector('.sec');
+			var iNum=60;
+			var index;
+			var index2;
+			function oClock(){
+				var oDate=new Date();
+				var H=oDate.getHours();
+				var M=oDate.getMinutes();
+				var S=oDate.getSeconds();
+				var mS=oDate.getMilliseconds();
+				oH.style.WebkitTransform='rotate('+(H*30+M/60*30)+'deg)';
+				oM.style.WebkitTransform='rotate('+(M*6+S/60*6)+'deg)';
+				index=(S*6+mS/1000*6);
+				oS.style.WebkitTransform='rotate('+index+'deg)';
+			}
+			for(var i=0;i<iNum;i++){
+				var oI=document.createElement('i');
+				if(i%5==0){
+					oI.className='needle_m';
+					var oMark=document.createElement('span');
+					oMark.innerHTML=i/5;
+					if(i/5==0)oMark.innerHTML=12;
+					oMark.style.WebkitTransform='rotate('+-i*6+'deg)';
+					oI.appendChild(oMark);
+				}else{
+					oI.className='needle';
+				}
+				
+				oI.style.WebkitTransform='rotate('+i*6+'deg)';
+				oC.appendChild(oI);	
+			}
+			oClock();
+			setInterval(oClock,1);
+		},false);
+	</script>
+</head>
+<body>
+	<div class="clock">
+		<div class="hour"></div>
+		<div class="min"></div>
+		<div class="sec"></div>
+		<p class="dot"></p>
+	</div>
+</body>
+</html>

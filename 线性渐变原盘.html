@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		div{ width: 200px;height: 200px;background:-webkit-linear-gradient(0,#fff,#756,#004,#000,#908,#123,#fff); margin:20px auto;border-radius: 50%;}
+	</style>
+	<script>
+		document.addEventListener('DOMContentLoaded',function(){
+			var oDiv=document.querySelector('div');
+			var n=0;
+
+			setInterval(function(){
+				n+=10;
+				oDiv.style.background='-webkit-linear-gradient('+n+'deg,#fff,#756,#004,#000,#908,#123,#fff)';
+			},1)
+		},false);
+	</script>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

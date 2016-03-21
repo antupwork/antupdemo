@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>work</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		body{overflow: hidden;}
+		li{list-style: none;}
+		img{ width: 300px;height: 400px; }
+		ul{ width: 300px; height:400px; position:relative; margin: 100px auto; perspective:800px; }
+		ul li{ position: absolute;left: 0;top: 0; width: 100%; height: 100%;-webkit-transition:1s all ease; }
+		ul li.med{-webkit-transform:translate(0px); z-index: 4;}
+		ul li.l1{-webkit-transform:translateX(-260px) rotateY(45deg);z-index: 2;opacity: 0.8;}
+		ul li.l2{-webkit-transform:translateX(-350px) rotateY(45deg);z-index: 1;opacity: 0;}
+		ul li.r1{-webkit-transform:translateX(260px) rotateY(-45deg);z-index: 2;opacity: 0.8;}
+		ul li.r2{-webkit-transform:translateX(350px) rotateY(-45deg);z-index: 1;opacity: 0;}
+		div{position: absolute;width:200px;height: 60px;left:50%;bottom:10px;overflow: hidden; }
+		div span{ float: left; width: 50px;border: 2px solid #790;text-align: center; cursor: pointer;margin-right: 20px; }
+	</style>
+	<script>
+		document.addEventListener('DOMContentLoaded',function(){
+			var aLi=document.querySelectorAll('ul li');
+			var oL=document.querySelector('.last');
+			var oN=document.querySelector('.next');
+			var arr=[];
+			for(var i=0;i<aLi.length;i++){
+				arr.push(aLi[i].className);
+			}
+			oL.onclick=function(){
+				arr.push(arr.shift());
+				for(var i=0;i<aLi.length;i++){
+					aLi[i].className=arr[i];
+				}
+			};
+			oN.onclick=function(){
+				arr.unshift(arr.pop());
+				for(var i=0;i<aLi.length;i++){
+					aLi[i].className=arr[i];
+				}
+			};
+		},false);
+	</script>
+</head>
+<body>
+	<ul>
+		<li class="med"><img src="images/14.png"/></li>
+		<li class="r1"><img src="images/15.png"/></li>
+		<li class="r2"><img src="images/16.png"/></li>
+		<li><img src="images/17.png"/></li>
+		<li><img src="images/20.png"/></li>
+		<li><img src="images/21.png"/></li>
+		<li><img src="images/22.png"/></li>
+		<li class="l2"><img src="images/23.png"/></li>
+		<li class="l1"><img src="images/24.png"/></li>
+	</ul>
+	<div>
+		<span class="last">丄</span>
+		<span class="next">丅</span>
+	</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<script>
+	document.addEventListener('DOMContentLoaded',function(){
+		var oBox=document.querySelector('div');
+		alert(oBox.dataset.index);
+		oBox.dataset.a='bbb';
+	},false);
+
+</script>
+</head>
+<body>
+	<div class="box" data-index="ant"></div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding:0;}
+		div{width: 100px; height: 400px; position: absolute;left:50%;top:100px;margin-left: -30px; border:1px solid #000; overflow: hidden;}
+		@keyframes test{
+			from{left: 0;}
+			to{left:-110px; }
+		}
+		div span{ width:400px;height: 100%;position: absolute;left: 0;top: 0; background:-webkit-repeating-linear-gradient(-45deg,green 0px,green 20px,white 20px,white 40px); animation-name: test;animation-duration: .5s;animation-iteration-count: infinite; animation-timing-function: linear;}
+	</style>
+	<script>
+		document.addEventListener('DOMContentLoaded',function(){
+			var p1=document.getElementById('pick1');
+			var p2=document.getElementById('pick2');
+			var oS=document.querySelector('span')
+			p1.onchange=function(){
+				oS.style.background='-webkit-repeating-linear-gradient(-45deg,'+p1.value+' 0px,'+p1.value+' 20px,'+p2.value+' 20px,'+p2.value+' 40px)';
+			};
+			p2.onchange=function(){
+				oS.style.background='-webkit-repeating-linear-gradient(-45deg,'+p1.value+' 0px,'+p1.value+' 20px,'+p2.value+' 20px,'+p2.value+' 40px)';
+			};
+		},false);
+	</script>
+</head>
+<body>
+	<input type="color" value="#000000" id="pick1">
+	<input type="color" value="#ffffff" id="pick2">
+	<div>
+		<span></span>
+	</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>sigin</title>
+	<style>
+		*{margin: 0;padding: 0;text-decoration: none;}
+		body{overflow: hidden;}
+		div{ width: 300px;height: 300px;background: #232;position: absolute;left: 50%;top: 50%;margin-left: -150px;margin-top: -150px;-webkit-transform:scale(5,5); display: none;opacity: 0;}
+		div a{color: #fff;position: absolute;right: 10px;font-size: 20px;}
+	</style>
+	<script>
+		document.addEventListener('DOMContentLoaded',function(){
+			var oBtn=document.querySelector('input');
+			var oDiv=document.querySelector('div');
+			var oClose=document.querySelector('a');
+				oBtn.onclick=function(){
+					oDiv.style.display='block';
+					oDiv.style.WebkitTransition='0.4s all ease';
+					setTimeout(function(){
+						oDiv.style.WebkitTransform='scale(1,1)';
+						oDiv.style.opacity='1';
+					},1);
+				};
+				oClose.onclick=function(){
+					oDiv.style.opacity='0';
+					oDiv.style.WebkitTransform='scale(5,5)';
+					function fnOver(){
+						oDiv.style.display='none';
+						oDiv.removeEventListener('transitionend',fnOver,false);
+					}
+					oDiv.addEventListener('transitionend',fnOver,false);
+				};
+		},false);
+	</script>
+</head>
+<body>
+	<input type="button" value="登陆">
+	<div>
+		<a href="javascript:;">X</a>	
+	</div>
+</body>
+</html>

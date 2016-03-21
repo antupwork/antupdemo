@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.blue{ background: blue; border-radius: 50%; }
+		.black{ width: 100px; }
+	</style>
+	<script>
+		document.addEventListener('DOMContentLoaded',function(){
+			var oBtn=document.querySelector('input');
+			oBtn.classList.add('black');
+			oBtn.classList.remove('on');
+			//alert(oBtn.classList.contains('btn'))
+			oBtn.onclick=function(){
+				oBtn.classList.toggle('blue');
+			};
+		},false);
+	</script>
+</head>
+<body>
+	<input type="button" value="按钮" class="btn on">
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3d翻转</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		div{ width: 200px;height: 300px;position: relative; margin: 100px auto;-webkit-transform-style:preserve-3d;
+		-webkit-transition:1s all ease;-webkit-transform:perspective(800px) rotateX(0deg); }
+		div span{width: 100%;height: 100%;position: absolute;;left: 0;top: 0;text-align: center;;line-height: 300px;font-size: 50px;}
+		.top{background: #576;-webkit-transform:translateZ(1px);}
+		.under{background: #123;-webkit-transform:translateZ(-10px) scale(1,-1);}
+		div:active{-webkit-transform:perspective(800px) rotateX(180deg);}
+	</style>
+</head>
+<body>
+	<div><span class="top">正面</span><span class="under">背面</span></div>
+</body>
+</html>

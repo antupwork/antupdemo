@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	*{margin:0;padding:0;}
+	div{ width:200px; height:200px; float:left; margin-left:100px; margin-top:400px; background:url(homework/cd/img_01.jpg) no-repeat; background-size:cover; cursor:pointer; position:relative;}
+	div span{ background:url(homework/cd/cd.png); background-size:cover; position:absolute; left:0; top:0; width:194px; height:194px; z-index:-1; -webkit-transition:1s all ease;}
+</style>
+<script>
+	document.addEventListener('DOMContentLoaded',function(){
+		var aDiv=document.querySelectorAll('div');
+		var aS=document.querySelectorAll('span');
+		var n=0;
+		var stopT;
+		function timer(obj){
+			stopT=setInterval(function(){
+				n++;
+				if(n==360){
+					n=0;	
+				}
+				obj.style.WebkitTransform='rotate('+n+'deg)';	
+			},11);	
+		}
+		for(var i=0;i<aDiv.length;i++){
+			(function(index){
+				aDiv[i].onclick=function(){
+					for(var i=0;i<aDiv.length;i++){
+						aS[i].style.top='0px';
+						clearInterval(stopT);	
+					}
+					aS[index].style.top='-95px';
+					timer(aS[index]);	
+				};	
+			})(i);
+		}	
+	},false);
+</script>
+</head>
+
+<body>
+<div>
+	<span></span>
+</div>
+<div>
+	<span></span>
+</div>
+<div>
+	<span></span>
+</div>
+</body>
+</html>

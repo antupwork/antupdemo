@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		div{width: 200px;height: 200px; background: #455;}
+	</style>
+	<script>
+		document.addEventListener('DOMContentLoaded',function(){
+			var oDiv=document.querySelector('div');
+			oDiv.onclick=function(){
+				oDiv.style.WebkitTransition='1s all ease';
+				oDiv.style.MozTransition='1s all ease';
+				oDiv.style.msTransition='1s all ease';
+				oDiv.style.OTransition='1s all ease';
+				oDiv.style.transition='1s all ease';
+				oDiv.style.width='400px';
+				oDiv.addEventListener('transitionend',function(){
+					oDiv.style.height='600px';
+					oDiv.addEventListener('transitionend',function(){
+						oDiv.style.borderRadius='50%';
+					},false);
+				},false);
+			};
+		},false);
+	</script>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

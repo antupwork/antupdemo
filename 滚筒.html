@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		div{width:80px; height: 500px; border:1px solid #000;margin: 10px auto; position: relative;overflow: hidden;}
+		@keyframes test{
+			from{left: 0;}
+			to{left: -110px;}
+		}
+		div span{ width:300px;height: 500px; background:repeating-linear-gradient(-45deg,green 0px,green 20px,#fff 20px,#fff 40px,red 40px,red 60px,#fff,60px,#fff 80px); position: absolute;left: 0;top: 0;
+			animation-name:test;
+			animation-duration: .4s;
+			animation-timing-function: linear;
+			animation-iteration-count: infinite; }
+	</style>
+</head>
+<body>
+	<div>
+		<span></span>
+	</div>
+</body>
+</html>

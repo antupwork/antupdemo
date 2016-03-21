@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		@keyframes test{
+			from{width: 100px;height: 100px; background: #087;}
+			to{width: 500px;height: 500px; background: #009;}
+		}
+		div{width: 100px;height: 100px;background: #087; margin: 100px 100px;
+			-webkit-transition:1s all ease;
+			-moz-transition:1s all ease;
+			-ms-transition:1s all ease;
+			-o-transition:1s all ease;
+			transition:1s all ease;
+			-webkit-animation:test 1s infinite ease-in alternate;
+			-moz-animation:test 1s infinite ease-in alternate;
+			-ms-animation:test 1s infinite ease-in alternate;
+			-o-animation:test 1s infinite ease-in alternate;
+			animation:test 1s infinite ease-in alternate;}
+		div:hover{animation-play-state: paused;}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

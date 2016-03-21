@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	*{margin:0;padding:0;}
+	body{ height:100%; background:url(space_bg.jpg) no-repeat; background-size:cover;}
+	div{ width:400px; height:60px; font-size:50px; line-height:60px; text-align:center; font-family:'微软雅黑'; margin:200px auto; background:-webkit-repeating-linear-gradient(-60deg,rgba(255,255,255,0.4) 0px,rgba(255,255,255,0.4) 40px,rgba(0,0,0,0.5) 40px,rgba(0,0,0,0.5) 400px); }
+</style>
+<script>
+	document.addEventListener('DOMContentLoaded',function(){
+		var oDiv=document.querySelector('div');
+		var n=0;
+		var timer=null;
+		clearInterval(timer);
+		timer=setInterval(function(){
+			n++;
+			if(n==360){
+				n=0;	
+			}
+			oDiv.style.background='-webkit-repeating-linear-gradient(-60deg,rgba(255,255,255,0.4) '+n+'px,rgba(255,255,255,0.4) '+(n+40)+'px,rgba(0,0,0,0.5) '+(n+40)+'px,rgba(0,0,0,0.5) '+(oDiv.offsetWidth-(n+40))+'px)';
+			oDiv.style.WebkitBackgroundClip='text';	
+			oDiv.style.color='rgba(0,0,0,0)';
+		},10);	
+	},false);
+</script>
+</head>
+
+<body>
+	<div>请移动滑块解锁</div>
+</body>
+</html>

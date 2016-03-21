@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin: 0;padding: 0;}
+		div{ width: 700px;height: 50px;font-size: 50px;font-weight: bolder;line-height: 50px;text-align:center;margin: 400px auto;text-shadow: 0,0,0,1;}
+		span{width: 140px;height: 140px;background: rgba(0,0,0,0.4);position: absolute;left: 0;top: 0;border-radius: 50%; cursor: pointer;}
+	</style>
+	<script>
+		document.addEventListener('DOMContentLoaded',function(){
+			var oDiv=document.querySelector('div');
+			var oS=document.querySelector('span');
+			document.onmousemove=function(ev){
+				var oEvent=ev||event;
+				oS.style.left=oEvent.clientX-oS.offsetWidth/2+'px';
+				oS.style.top=oEvent.clientY-oS.offsetHeight/2+'px';
+				var spaceX=(oDiv.offsetWidth/2+oDiv.offsetLeft)-(oS.offsetWidth/2+oS.offsetLeft);
+				var spaceY=(oDiv.offsetHeight/2+oDiv.offsetTop)-(oS.offsetHeight/2+oS.offsetTop);
+				var n=Math.sqrt(spaceX*spaceX+spaceY*spaceY);
+				oDiv.style.textShadow=spaceX/4+'px '+spaceY/4+'px '+n/28+'px #453';
+			};
+		},false);
+	</script>
+</head>
+<body>
+	<div> he's going to let you down my friend</div>
+	<span></span>
+</body>
+</html>
